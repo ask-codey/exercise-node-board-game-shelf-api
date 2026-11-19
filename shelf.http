@@ -1,0 +1,38 @@
+# Requests to try with VS Code's REST Client extension.
+# Start the server first (npm start), then click Send Request above any request.
+
+### Every game: 200
+GET http://localhost:3100/games
+
+### Games for a group of four (1, 2, 4 and 6): 200
+GET http://localhost:3100/games?players=4
+
+### Games of 30 minutes or less (2, 3, 5 and 6): 200
+GET http://localhost:3100/games?maxMinutes=30
+
+### Both filters at once (2 and 6): 200
+GET http://localhost:3100/games?players=4&maxMinutes=30
+
+### No game is made for a group of twelve, so an empty list: 200
+GET http://localhost:3100/games?players=12
+
+### One game by its id: 200
+GET http://localhost:3100/games/4
+
+### A game that isn't on the shelf: 404
+GET http://localhost:3100/games/99
+
+### Not a number at all: 404
+GET http://localhost:3100/games/chess
+
+### Add a game (it gets id 9): 201
+POST http://localhost:3100/games
+Content-Type: application/json
+
+{ "title": "Lantern Festival", "minPlayers": 2, "maxPlayers": 4, "minutes": 35 }
+
+### The new game is on the shelf, until the server restarts: 200
+GET http://localhost:3100/games/9
+
+### An address the café's API doesn't know: 404
+GET http://localhost:3100/snacks
