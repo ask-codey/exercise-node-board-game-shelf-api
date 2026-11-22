@@ -10,7 +10,7 @@ The Rolling Dice board game café wants its customers to check the shelf before 
 - `routes/games.js`: the games router, `gamesRouter`, with no routes yet. For you to finish.
 - `games.js`: the café's eight games, and `resetGames()`, which the tests use to put the shelf back before each test. Ready to use.
 - `server.js`: starts your app at `http://localhost:3100`. Ready to use.
-- `shelf.http`: the requests to try, for VS Code's REST Client extension. Ready to use.
+- `shelf.insomnia.json`: the requests to try, as an Insomnia collection. Ready to use.
 - `app.test.js`: tests that send requests to your app with Supertest and check each answer. You don't need to change this file.
 - `package.json` and `package-lock.json`: the project's settings, its scripts (`start`, `dev` and `test`), Express, and Supertest for the tests, each at an exact version. Ready to use.
 
@@ -30,7 +30,7 @@ It makes a `node_modules` folder. That folder is in `.gitignore`, so Git leaves 
 npm start
 ```
 
-The terminal says `The café's API is listening on http://localhost:3100` and keeps running. Open `shelf.http` and click **Send Request** above any request; REST Client shows the answer beside it. Stop the server with **Ctrl+C**.
+The terminal says `The café's API is listening on http://localhost:3100` and keeps running. In Insomnia, click **Import** in your `Node.js in Depth` project, choose `shelf.insomnia.json`, and send any request; its description says what to expect. Stop the server with **Ctrl+C**.
 
 `npm run dev` starts it with `node --watch`, so it restarts each time you save a file. A game you add with `POST /games` is kept only until the server restarts.
 
